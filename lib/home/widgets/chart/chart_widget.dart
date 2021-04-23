@@ -7,15 +7,14 @@ class ChartWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.only(left: 24),
-      height: 60,
-      width: 60,
+      height: 80,
+      width: 80,
       child: Stack(
         children: [
           Center(
             child: Container(
-              height: 60,
-              width: 60,
+              height: 70,
+              width: 70,
               child: CircularProgressIndicator(
                 strokeWidth: 10,
                 value: .75,
