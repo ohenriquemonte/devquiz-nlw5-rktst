@@ -15,7 +15,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   final controller = HomeController();
-  
+
   @override
   void initState() {
     super.initState();
@@ -29,9 +29,11 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    if(controller.state == HomeState.success) {
+    if (controller.state == HomeState.success) {
       return Scaffold(
-        appBar: AppBarWidget(user: controller.user!,),
+        appBar: AppBarWidget(
+          user: controller.user!,
+        ),
         body: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20),
           child: Column(
@@ -60,13 +62,16 @@ class _HomePageState extends State<HomePage> {
                   crossAxisSpacing: 16,
                   mainAxisSpacing: 16,
                   crossAxisCount: 2,
-                  children: controller.quizzes!.map(
-                      (e)=> QuizCardWidget(
-                          title: e.title, 
-                          completed: '${e.questionAnswered}/${e.questions.length}', 
-                          percent: e.questionAnswered/e.questions.length,
+                  children: controller.quizzes!
+                      .map(
+                        (e) => QuizCardWidget(
+                          title: e.title,
+                          completed:
+                              '${e.questionAnswered}/${e.questions.length}',
+                          percent: e.questionAnswered / e.questions.length,
                         ),
-                    ).toList(),
+                      )
+                      .toList(),
                 ),
               ),
             ],
@@ -77,7 +82,7 @@ class _HomePageState extends State<HomePage> {
       return Scaffold(
         body: Center(
           child: CircularProgressIndicator(
-             valueColor: AlwaysStoppedAnimation<Color>(AppColors.darkGreen),
+            valueColor: AlwaysStoppedAnimation<Color>(AppColors.darkGreen),
           ),
         ),
       );
